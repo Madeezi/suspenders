@@ -55,7 +55,6 @@ module Suspenders
       invoke :setup_dotfiles
       invoke :setup_database
       invoke :create_github_repo
-      invoke :setup_segment
       invoke :setup_bundler_audit
       invoke :setup_spring
       invoke :generate_default
@@ -168,11 +167,6 @@ module Suspenders
       end
     end
 
-    def setup_segment
-      say 'Setting up Segment'
-      build :setup_segment
-    end
-
     def setup_dotfiles
       build :copy_dotfiles
     end
@@ -220,6 +214,7 @@ module Suspenders
       generate("suspenders:db_optimizations")
       generate("suspenders:factories")
       generate("suspenders:lint")
+      generate("suspenders:analytics")
     end
 
     def outro
