@@ -46,7 +46,6 @@ module Suspenders
       invoke :setup_test_environment
       invoke :setup_production_environment
       invoke :setup_secret_token
-      invoke :create_suspenders_views
       invoke :configure_app
       invoke :copy_miscellaneous_files
       invoke :customize_error_pages
@@ -118,15 +117,6 @@ module Suspenders
     def setup_secret_token
       say 'Moving secret token out of version control'
       build :setup_secret_token
-    end
-
-    def create_suspenders_views
-      say 'Creating suspenders views'
-      build :create_partials_directory
-      build :create_shared_flashes
-      build :create_shared_javascripts
-      build :create_shared_css_overrides
-      build :create_application_layout
     end
 
     def configure_app
@@ -220,6 +210,7 @@ module Suspenders
       generate("suspenders:db_optimizations")
       generate("suspenders:factories")
       generate("suspenders:lint")
+      generate("suspenders:views")
     end
 
     def outro
