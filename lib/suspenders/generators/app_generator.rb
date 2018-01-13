@@ -95,14 +95,8 @@ module Suspenders
 
     def setup_test_environment
       say 'Setting up the test environment'
-      build :generate_rspec
-      build :configure_rspec
       build :configure_background_jobs_for_rspec
-      build :provide_shoulda_matchers_config
-      build :configure_spec_support_features
       build :configure_ci
-      build :configure_i18n_for_test_environment
-      build :configure_action_mailer_in_specs
       build :configure_capybara_webkit
     end
 
@@ -215,6 +209,7 @@ module Suspenders
       generate("suspenders:enforce_ssl")
       generate("suspenders:static")
       generate("suspenders:stylesheet_base")
+      generate("suspenders:testing")
       generate("suspenders:ci")
       generate("suspenders:forms")
       generate("suspenders:db_optimizations")
