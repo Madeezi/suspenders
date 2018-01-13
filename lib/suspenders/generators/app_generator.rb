@@ -100,10 +100,8 @@ module Suspenders
       build :configure_background_jobs_for_rspec
       build :provide_shoulda_matchers_config
       build :configure_spec_support_features
-      build :configure_ci
       build :configure_i18n_for_test_environment
       build :configure_action_mailer_in_specs
-      build :configure_capybara_webkit
     end
 
     def setup_production_environment
@@ -216,6 +214,7 @@ module Suspenders
       generate("suspenders:static")
       generate("suspenders:stylesheet_base")
       generate("suspenders:ci")
+      generate("suspenders:js_driver")
       generate("suspenders:forms")
       generate("suspenders:db_optimizations")
       generate("suspenders:factories")
